@@ -1,6 +1,8 @@
+//Funcao no qual contem todo a logica do codigo, criada com o intuito de preservar boas praticas de programacao.
 function main(){
     
-    textoHora = document.querySelector('h1');
+    
+    textoHora = document.querySelector('h1'); // variavel no qual tem como objetivo selecionar o texto principal, texto cujo servira para ser o display do timer.
 
     function getDate(seconds){
         const date = new Date(seconds * 1000);
@@ -9,15 +11,14 @@ function main(){
             timeZone: 'GMT'
         })
 
-
+        // Function getDate() tem como objetivo utilizar o objeto Date do javascript para gerar 
+        // os segundos utilizados na aplicacao.
     }
 
-    const start = document.querySelector('.start');
-    const stop = document.querySelector('.stop');
-    const reset = document.querySelector('.reset');
+    let seconds = 0; // variaveis seconds e runtimer foram criadas para fazer a gestao dos dados gerados pela 
+    let runTimer    // function date.
 
-    let seconds = 0;
-    let runTimer
+
 
     document.addEventListener('click', function(e){
         const el = e.target;
@@ -39,6 +40,9 @@ function main(){
             startClock()
         }
         
+        // a function(e), uma funcao anonima, responsavel por gerenciar cada acao de seu respectivo botao
+        // utilizando a estrutura de if-else 
+
     })
 
     function startClock(){
@@ -47,9 +51,11 @@ function main(){
             seconds++
             textoHora.innerHTML = getDate(seconds);
         }, 1000);
+
+        // function startClock() com o objetivo de fazer o relogio funcionar ao pressionar o botao start
     }
     
 
 }
 
-main()
+main() // chama a variavel do escopo, linha de codigo responsavel para fazer o script funcionar.
